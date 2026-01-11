@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Film Festival QR Code</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .qr-container {
+            background: white;
+            border-radius: 25px;
+            padding: 40px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            max-width: 500px;
+            width: 100%;
+        }
+        
+        .logo {
+            font-size: 2.5rem;
+            color: #e63946;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+        
+        h1 {
+            color: #1d3557;
+            margin-bottom: 10px;
+            font-size: 2rem;
+        }
+        
+        .subtitle {
+            color: #457b9d;
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+            line-height: 1.5;
+        }
+        
+        .qr-code {
+            margin: 30px 0;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 15px;
+            display: inline-block;
+        }
+        
+        .url-display {
+            background: #f1faee;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 25px 0;
+            word-break: break-all;
+            font-family: monospace;
+            color: #1d3557;
+            border-left: 4px solid #e63946;
+        }
+        
+        .instructions {
+            background: #a8dadc;
+            padding: 20px;
+            border-radius: 15px;
+            margin-top: 25px;
+            color: #1d3557;
+        }
+        
+        .instructions h3 {
+            margin-bottom: 10px;
+            color: #1d3557;
+        }
+        
+        .instructions ol {
+            text-align: left;
+            margin-left: 20px;
+        }
+        
+        .instructions li {
+            margin-bottom: 8px;
+            line-height: 1.5;
+        }
+        
+        .scan-text {
+            color: #e63946;
+            font-weight: 600;
+            margin-top: 15px;
+            font-size: 1.2rem;
+        }
+        
+        .film-icon {
+            font-size: 3rem;
+            color: #e63946;
+            margin-bottom: 15px;
+        }
+        
+        @media (max-width: 600px) {
+            .qr-container {
+                padding: 25px;
+            }
+            
+            h1 {
+                font-size: 1.7rem;
+            }
+            
+            .logo {
+                font-size: 2rem;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="qr-container">
+        <div class="film-icon">
+            <i class="fas fa-film"></i>
+        </div>
+        <div class="logo">LAMP ART FILM FESTIVAL</div>
+        <h1>Official QR Code</h1>
+        <p class="subtitle">Scan this QR code to visit the official festival rules and guidelines</p>
+        
+        <div class="qr-code">
+            <!-- This is the QR code for: https://lampart-short-film-festival-rules-a.vercel.app/ -->
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=https://lampart-short-film-festival-rules-a.vercel.app/" 
+                 alt="QR Code for Lamp Art Film Festival"
+                 title="Scan to visit festival rules">
+        </div>
+        
+        <p class="scan-text">Scan with your phone's camera</p>
+        
+        <div class="url-display">
+            <i class="fas fa-link"></i> https://lampart-short-film-festival-rules-a.vercel.app/
+        </div>
+        
+        <div class="instructions">
+            <h3><i class="fas fa-info-circle"></i> How to Scan:</h3>
+            <ol>
+                <li>Open your phone's camera app</li>
+                <li>Point it at the QR code above</li>
+                <li>Tap the notification that appears</li>
+                <li>You'll be taken directly to the festival rules page</li>
+            </ol>
+        </div>
+    </div>
+
+    <script>
+        // Simple animation for the film icon
+        document.addEventListener('DOMContentLoaded', function() {
+            const filmIcon = document.querySelector('.film-icon');
+            filmIcon.style.transform = 'scale(0)';
+            filmIcon.style.transition = 'transform 0.5s ease-out';
+            
+            setTimeout(() => {
+                filmIcon.style.transform = 'scale(1)';
+            }, 300);
+            
+            // Add click event to QR code for easy testing
+            document.querySelector('.qr-code img').addEventListener('click', function() {
+                window.open('https://lampart-short-film-festival-rules-a.vercel.app/', '_blank');
+            });
+            
+            // Make URL clickable
+            document.querySelector('.url-display').addEventListener('click', function() {
+                window.open('https://lampart-short-film-festival-rules-a.vercel.app/', '_blank');
+            });
+        });
+    </script>
+</body>
+</html>
